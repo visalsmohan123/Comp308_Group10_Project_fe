@@ -19,15 +19,15 @@ const AuthForm = () => {
   const [authenticate, { data, loading, error }] = useMutation(isRegistering ? SIGN_UP : SIGN_IN, {
     onCompleted: data => {
       // Store token and possibly user role
-      sessionStorage.setItem('authToken', data[isRegistering ? 'signUp' : 'signIn'].token);
-      sessionStorage.setItem('userRole', data[isRegistering ? 'signUp' : 'signIn'].user.role);
-
-      // Redirect based on role
-      if (!isRegistering) {
-        data.signIn.user.role === 'nurse' ? navigate('/nurse-dashboard') : navigate('/patient-dashboard');
+      if(!isRegistering){
+        sessionStorage.setItem('authToken', data.token);
+        sessionStorage.setItem('userRole', data.user.role);
+      
+        data.user.role === 'nurse' ? navigate('/nurse-dashboard') : navigate('/patient-dashboard');
       } else {
         navigate('/login'); // Redirect to login after registration
       }
+      alert("Success");
     },
     onError: err => {
       console.error("Authentication error:", err);
@@ -53,11 +53,14 @@ const AuthForm = () => {
     e.preventDefault();
     authenticate({
       variables: isRegistering ? {
+        email:formData.email,
         username: formData.username,
         password: formData.password,
+        age:formData.age,
+        gender:formData.gender,
         role: formData.role
       } : {
-        username: formData.username,
+        email: formData.email,
         password: formData.password
       }
     });
@@ -70,15 +73,16 @@ const AuthForm = () => {
 <div className="auth-form">
       <h2>{isRegistering ? 'Register' : 'Login'}</h2>
       <form class="mt-3" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            value={formData.username}
+        <input
+            type="email"
+            name="email"
+            id="email"
+            value={formData.email}
             onChange={handleInputChange}
-            placeholder = "Username"
+            placeholder = "Email"
             required
           />
+         
           <input
             type="password"
             name="password"
@@ -93,25 +97,25 @@ const AuthForm = () => {
          
           <div class="login-sub-div">
             <input
-            type="email"
-            name="email"
-            id="email"
+            type="text"
+            name="username"
+            id="username"
             value={formData.username}
             onChange={handleInputChange}
-            placeholder = "Email"
+            placeholder = "Username"
             required
           />
           <input
-            type="text"
+            type="number"
             name="age"
             id="age"
-            value={formData.username}
+            value={formData.age}
             onChange={handleInputChange}
             placeholder = "Age"
             required
           />
-          <label htmlFor="role">Gender:</label>
-            <select name="gender" id="gender" value={formData.role} onChange={handleInputChange}>
+          <label htmlFor="gender">Gender:</label>
+            <select name="gender" id="gender" value={formData.gender} onChange={handleInputChange}>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
