@@ -1,0 +1,26 @@
+
+
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0;
+    color: white;
+}
+.home > h1 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+.home > p {
+    font-size: 2rem;
+}
+.home > .login-register{
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    font-size: 2rem;
+    padding: 1%;
+    border-radius: 10px;
+
+}
