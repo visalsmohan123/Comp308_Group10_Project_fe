@@ -1,10 +1,21 @@
 import React from 'react';
+import DailyInfoForm from '../components/DailyInfoForm';
+import '../css/NurseDashboard.css';
 
 const PatientDashboard = () => {
+    const userId = sessionStorage.getItem('userId'); // Retrieve the user ID from sessionStorage
+
+    // Check if the userId exists and if the user is a patient
+    const userRole = sessionStorage.getItem('userRole');
+    if (userRole !== 'patient') {
+        return <p>Access Denied. This page is for patients only.</p>;
+    }
+
     return (
-        <div>
+        <div className="nurse-div text-dark">
+            <div className="nurse-bg"></div>
             <h1>Patient Dashboard</h1>
-            <p>This is the dashboard for patients.</p>
+            <DailyInfoForm patientId={userId} />
         </div>
     );
 };

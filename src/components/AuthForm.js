@@ -24,6 +24,8 @@ const AuthForm = () => {
             if(!isRegistering) {
                 sessionStorage.setItem('authToken', data.loginUser.token);
                 sessionStorage.setItem('userRole', data.loginUser.user.role);
+                sessionStorage.setItem('userId', data.loginUser.user.id);  // Storing user ID in session storage
+    
                 data.loginUser.user.role === 'nurse' ? navigate('/nurse-dashboard') : navigate('/patient-dashboard');
             } else {
                 navigate('/login'); // Redirect to login after registration
@@ -35,9 +37,10 @@ const AuthForm = () => {
             alert("Authentication failed: " + err.message); // Or update state to show error message in the UI
         }
     });
+    
 
     useEffect(() => {
-        // Reset form when switching between login and register
+        // Reset form when switching between login and registration
         setFormData({
             email: '',
             username: '',
@@ -70,6 +73,7 @@ const AuthForm = () => {
             }
         });
     };
+    
 
     return (
         <div className="w-100">
@@ -130,7 +134,7 @@ const AuthForm = () => {
                     <a></a>
                     <button className="btn btn-primary" type="submit">{isRegistering ? 'Register' : 'Login'}</button>
                     {isRegistering ? <a href="/login">Login</a> : <a href="/login?register=true">Register</a>}
-                    
+                    <a href="/" className='text-success'>Go to Home</a>
                 </form>
                 {loading && <p>Loading...</p>}
                 {error && <p>Error: {error.message}</p>}

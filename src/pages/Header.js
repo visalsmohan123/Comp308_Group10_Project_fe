@@ -11,7 +11,7 @@ const DashboardHeader = () => {
     <header >
     <div class="logo-div"></div>
       <h2>Welcome</h2>
-      <Link to="/" className="text-danger text-bold" onClick={handleLogout}>LogOut</Link>
+      <Link to="/" className="btn btn-danger" onClick={handleLogout}>LogOut</Link>
     </header>
   );
 };

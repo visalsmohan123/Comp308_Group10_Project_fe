@@ -58,3 +58,45 @@ export const CREATE_VITAL_SIGNS = gql`
     }
   }
 `;
+
+
+export const CREATE_DAILY_INFO = gql`
+  mutation CreateDailyInfo(
+    $patientId: ID!,
+    $pulseRate: Float,
+    $bloodPressure: String,
+    $weight: Float,
+    $temperature: Float,
+    $respiratoryRate: Float,
+    $medicationTaken: Boolean
+  ) {
+    createDailyInfo(
+      patientId: $patientId,
+      pulseRate: $pulseRate,
+      bloodPressure: $bloodPressure,
+      weight: $weight,
+      temperature: $temperature,
+      respiratoryRate: $respiratoryRate,
+      medicationTaken: $medicationTaken
+    ) {
+      id
+      pulseRate
+      bloodPressure
+      weight
+      temperature
+      respiratoryRate
+      updatedOn
+      medicationTaken
+    }
+  }
+`;
+
+export const CREATE_SYMPTOMS = gql`
+  mutation CreateSymptoms($patientId: ID!, $symptomsList: [String!]!, $severity: String) {
+    createSymptoms(patientId: $patientId, symptomsList: $symptomsList, severity: $severity) {
+      id
+      symptomsList
+      severity
+    }
+  }
+`;
