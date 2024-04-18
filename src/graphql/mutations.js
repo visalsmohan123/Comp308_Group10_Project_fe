@@ -62,7 +62,7 @@ export const CREATE_VITAL_SIGNS = gql`
 
 export const CREATE_DAILY_INFO = gql`
   mutation CreateDailyInfo(
-    $patientId: ID!,
+    $patientId: String!,
     $pulseRate: Float,
     $bloodPressure: String,
     $weight: Float,
@@ -92,7 +92,7 @@ export const CREATE_DAILY_INFO = gql`
 `;
 
 export const CREATE_SYMPTOMS = gql`
-  mutation CreateSymptoms($patientId: ID!, $symptomsList: [String!]!, $severity: String) {
+  mutation CreateSymptoms($patientId: String!, $symptomsList: [String!]!, $severity: String) {
     createSymptoms(patientId: $patientId, symptomsList: $symptomsList, severity: $severity) {
       id
       symptomsList
