@@ -127,7 +127,10 @@ const AuthForm = () => {
                             </select>
                         </div>
                     )}
+                    <a></a>
                     <button className="btn btn-primary" type="submit">{isRegistering ? 'Register' : 'Login'}</button>
+                    {isRegistering ? <a href="/login">Login</a> : <a href="/login?register=true">Register</a>}
+                    
                 </form>
                 {loading && <p>Loading...</p>}
                 {error && <p>Error: {error.message}</p>}

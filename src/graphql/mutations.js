@@ -25,3 +25,36 @@ export const SIGN_UP = gql`
     }
   }
 `;
+
+
+export const CREATE_VITAL_SIGNS = gql`
+  mutation CreateVitalSigns(
+    $nurseId: String!,
+    $patientId: String!,
+    $temperature: Float,
+    $heartRate: Float,
+    $bloodPressure: String,
+    $respiratoryRate: Float,
+    $notes: String
+  ) {
+    createVitalSigns(
+      nurseId: $nurseId,
+      patientId: $patientId,
+      temperature: $temperature,
+      heartRate: $heartRate,
+      bloodPressure: $bloodPressure,
+      respiratoryRate: $respiratoryRate,
+      notes: $notes
+    ) {
+      id
+      nurseId
+      patientId
+      temperature
+      heartRate
+      bloodPressure
+      respiratoryRate
+      updatedAt
+      notes
+    }
+  }
+`;
