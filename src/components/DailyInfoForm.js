@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'; // Corrected import for useNavig
 import { CREATE_DAILY_INFO } from '../graphql/mutations'; // Ensure this mutation is correctly defined in your GraphQL mutations
 import '../css/patient.css'; // Import the CSS file where styles are defined
 
+
 const DailyInfoForm = ({ patientId }) => {
     const navigate = useNavigate(); // Hook for navigation
     const [formData, setFormData] = useState({
@@ -62,13 +63,23 @@ const DailyInfoForm = ({ patientId }) => {
         navigate('/symptoms'); // Navigate to SymptomsDashboard
     };
 
+    const handleNavigateToDiabeticCheck = () => {
+        navigate('/diabetic-check'); // Navigate to Diabetics check
+    };
+
     return (
         <div className="formContainer">
-            <button 
+            <button className="button"
                 onClick={handleNavigateToSymptoms} 
                 style={{ position: 'absolute', top: '10px', right: '10px', padding: '8px 16px' }}  // Inline styles for the button
             >
                 Report Symptoms
+            </button>
+            <button className="button"
+                onClick={handleNavigateToDiabeticCheck} 
+                style={{ position: 'absolute', top: '60px', right: '10px', padding: '8px 16px' }}  // Inline styles for the button
+            >
+                Check Diabetics
             </button>
             <form onSubmit={handleSubmit}>
                 <input className="input" type="number" name="pulseRate" value={formData.pulseRate} onChange={handleChange} placeholder="Pulse Rate" required />

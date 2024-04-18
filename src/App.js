@@ -6,6 +6,7 @@ import PatientDashboard from './pages/PatientDashboard';
 import SymptomsDashboard from './pages/SymptomsDashboard';  // Import the SymptomsDashboard component
 import Home from './pages/Home';
 import PrivateRoute from './components/PrivateRoute';
+import DiabeticCheckForm from './pages/DiabeticCheckForm';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <SymptomsDashboard />
           </PrivateRoute>
         } />
+        <Route path="/diabetic-check" element={<DiabeticCheckForm />} />
       </Routes>
     </Router>
   );
