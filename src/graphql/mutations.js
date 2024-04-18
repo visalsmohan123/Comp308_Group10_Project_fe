@@ -56,3 +56,13 @@ export const CREATE_DAILY_INFO = gql`
     }
   }
 `;
+
+export const CREATE_SYMPTOMS = gql`
+  mutation CreateSymptoms($patientId: ID!, $symptomsList: [String!]!, $severity: String) {
+    createSymptoms(patientId: $patientId, symptomsList: $symptomsList, severity: $severity) {
+      id
+      symptomsList
+      severity
+    }
+  }
+`;
