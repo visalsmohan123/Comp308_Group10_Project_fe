@@ -1,5 +1,6 @@
 import React from 'react';
 import DailyInfoForm from '../components/DailyInfoForm';
+import '../css/NurseDashboard.css';
 
 const PatientDashboard = () => {
     const userId = sessionStorage.getItem('userId'); // Retrieve the user ID from sessionStorage
@@ -11,7 +12,8 @@ const PatientDashboard = () => {
     }
 
     return (
-        <div>
+        <div className="nurse-div text-dark">
+            <div className="nurse-bg"></div>
             <h1>Patient Dashboard</h1>
             <DailyInfoForm patientId={userId} />
         </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { CREATE_SYMPTOMS } from '../graphql/mutations';
 import { useNavigate } from 'react-router-dom';
+import '../css/NurseDashboard.css';
 
 const SymptomsDashboard = () => {
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
@@ -31,9 +32,14 @@ const SymptomsDashboard = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h1>Report Your Symptoms</h1>
+    <div className="nurse-div text-dark">
+                  <div className="nurse-bg"></div>
+
+    <form onSubmit={handleSubmit} >
+    <h1>Report Your Symptoms</h1>
+
+      <div className='formContainer d-flex flex-column gap-4'>
+        <div>
         {["Fever", "Cough", "Fatigue", "Loss of Taste or Smell"].map(symptom => (
           <label key={symptom}>
             <input
@@ -44,14 +50,18 @@ const SymptomsDashboard = () => {
             {symptom}
           </label>
         ))}
+        </div>
+     
         <select value={severity} onChange={e => setSeverity(e.target.value)}>
           <option value="mild">Mild</option>
           <option value="moderate">Moderate</option>
           <option value="severe">Severe</option>
         </select>
-        <button type="submit" disabled={loading}>Submit Symptoms</button>
+        <button type="submit" className='btn btn-success' disabled={loading}>Submit Symptoms</button>
         {loading && <p>Loading...</p>}
         {error && <p>Error: {error.message}</p>}
+      </div>
+
       </form>
     </div>
   );

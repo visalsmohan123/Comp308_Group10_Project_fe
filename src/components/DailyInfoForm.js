@@ -64,9 +64,9 @@ const DailyInfoForm = ({ patientId }) => {
 
     return (
         <div className="formContainer">
-            <button 
+            <button  className='btn btn-primary'
                 onClick={handleNavigateToSymptoms} 
-                style={{ position: 'absolute', top: '10px', right: '10px', padding: '8px 16px' }}  // Inline styles for the button
+                style={{ position: 'absolute', top: '14%', right: '10px', padding: '8px 16px' }}  // Inline styles for the button
             >
                 Report Symptoms
             </button>

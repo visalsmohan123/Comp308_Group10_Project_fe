@@ -1,0 +1,64 @@
+.nurse-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+.nurse-bg{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../assets/nurse-bg.jpg");
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    z-index: -2;
+    filter: blur(10px) brightness(0.6);
+    backdrop-filter: brightness(0);
+  } 
+  .vital-btn{
+    margin-right: 8px;
+  }
+.vital-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+.history-container{
+  width: 90%;
+  
+}
+.history-item{
+width: 100%;
+border-radius: 15px;
+padding: 1%;
+margin-bottom: 1%;
+background: #16222A;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #3A6073, #16222A);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.history-item:hover{
+  cursor: pointer;
+}
+h1{
+  backdrop-filter: blur(40px);
+  padding: 1% 4%;
+  border-radius: 15px;
+}
+  input, select{
+    padding: 3%;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid blueviolet;
+    width: 90%; 
+  }
+  input:hover{
+    outline: #61dafb;
+  }
+

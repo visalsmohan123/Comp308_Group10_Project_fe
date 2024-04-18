@@ -47,3 +47,28 @@ code {
   filter:brightness(0.5);
   z-index: -2;
 }
+.logo-div{
+  background-image: url("assets/home_bg.jpg");
+  width: 100px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  backdrop-filter: blur(70px);
+  color: black;
+  padding: 1%;
+  display: flex;
+  justify-content: space-between;
+}
+.logo-div  Link{
+  font-weight: bold;
+  font-size: 3rem;
+}
