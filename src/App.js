@@ -12,8 +12,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<AuthForm />} />
-        <Route path="/nurse-dashboard" element={<PrivateRoute><NurseDashboard /></PrivateRoute>} />
-        <Route path="/patient-dashboard" element={<PrivateRoute><PatientDashboard /></PrivateRoute>} />
+        <Route path="/nurse-dashboard" element={
+          <PrivateRoute allowedRoles={['nurse']}>
+            <NurseDashboard />
+          </PrivateRoute>
+        } />
+        <Route path="/patient-dashboard" element={
+          <PrivateRoute allowedRoles={['patient']}>
+            <PatientDashboard />
+          </PrivateRoute>
+        } />
       </Routes>
     </Router>
   );

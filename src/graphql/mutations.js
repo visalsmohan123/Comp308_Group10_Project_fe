@@ -25,3 +25,34 @@ export const SIGN_UP = gql`
     }
   }
 `;
+
+export const CREATE_DAILY_INFO = gql`
+  mutation CreateDailyInfo(
+    $patientId: ID!,
+    $pulseRate: Float,
+    $bloodPressure: String,
+    $weight: Float,
+    $temperature: Float,
+    $respiratoryRate: Float,
+    $medicationTaken: Boolean
+  ) {
+    createDailyInfo(
+      patientId: $patientId,
+      pulseRate: $pulseRate,
+      bloodPressure: $bloodPressure,
+      weight: $weight,
+      temperature: $temperature,
+      respiratoryRate: $respiratoryRate,
+      medicationTaken: $medicationTaken
+    ) {
+      id
+      pulseRate
+      bloodPressure
+      weight
+      temperature
+      respiratoryRate
+      updatedOn
+      medicationTaken
+    }
+  }
+`;
