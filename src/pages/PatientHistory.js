@@ -30,7 +30,7 @@ const PatientHistory = () => {
             <p class="col-md-3"><strong># {index+1}</strong></p>
               <p class="col-md-3"><strong>Nurse ID:</strong> {sign.nurseId}</p>
               <p class="col-md-3"><strong>PatientId ID:</strong> {sign.patientId}</p>
-              <p class="col-md-3"><strong>Updated At:</strong> {sign.updatedAt}</p>
+              <p className="col-md-3"><strong>Updated At:</strong> {new Date(parseInt(sign.updatedAt)).toLocaleString()}</p>
             </div>
             {expandedIndex === index && (
               <div className="details row">
