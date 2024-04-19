@@ -8,21 +8,20 @@
   width: 100%;
   height: 100%;
 }
+
 .nurse-bg{
-    width: 100vw;
-    height: 100vh;
-    background-image: url("../assets/nurse-bg.jpg");
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-size: cover;
-    z-index: -2;
-    filter: blur(10px) brightness(0.6);
-    backdrop-filter: brightness(0);
-  } 
-  .vital-btn{
-    margin-right: 8px;
-  }
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/nurse-bg.jpg");
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  z-index: -2;
+  filter: blur(10px) brightness(0.6);
+  backdrop-filter: brightness(0);
+}
+
 .vital-form{
   display: flex;
   flex-direction: column;
@@ -30,35 +29,86 @@
   align-items: center;
   gap: 2vh;
 }
+
 .history-container{
   width: 90%;
-  
 }
+
 .history-item{
-width: 100%;
-border-radius: 15px;
-padding: 1%;
-margin-bottom: 1%;
-background: #16222A;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to top, #3A6073, #16222A);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to top, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 100%;
+  border-radius: 15px;
+  padding: 1%;
+  margin-bottom: 1%;
+  background: #16222A; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #3A6073, #16222A); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
 .history-item:hover{
   cursor: pointer;
 }
+
 h1{
   backdrop-filter: blur(40px);
   padding: 1% 4%;
   border-radius: 15px;
 }
-  input, select{
-    padding: 3%;
-    border-radius: 10px;
-    outline: none;
-    border: 1px solid blueviolet;
-    width: 90%; 
-  }
-  input:hover{
-    outline: #61dafb;
-  }
 
+input, select{
+  padding: 3%;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid blueviolet;
+  width: 90%; 
+}
+
+input:hover{
+  outline: #61dafb;
+}
+
+/* Nurse Dashboard Buttons General Style */
+.btn {
+  margin-right: 8px; /* Right margin for spacing between buttons */
+  margin-bottom: 10px; /* Bottom margin for spacing between rows of buttons or other elements */
+}
+
+/* Ensure the last button in a row doesn't have a right margin */
+.btn:last-child {
+  margin-right: 0;
+}
+
+/* Specific styles for history buttons for consistency */
+.history-btn {
+  background-color: #4CAF50; /* Green background for visibility */
+  color: white; /* White text color for contrast */
+  border: none; /* No border for a modern look */
+  padding: 10px 20px; /* Padding for button size */
+  text-align: center; /* Center text inside the button */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Allows side-by-side display */
+  font-size: 16px; /* Readable text size */
+  transition-duration: 0.4s; /* Smooth transition for hover effects */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-right: 8px; /* Right margin for spacing between buttons */
+}
+
+.history-btn:hover {
+  background-color: white; /* White background on hover */
+  color: #4CAF50; /* Green text on hover */
+}
+
+/* Consistency with existing button styles */
+.btn-info, .btn-success {
+  padding: 8px 16px; /* Uniform padding */
+  border-radius: 4px; /* Rounded corners */
+  font-weight: bold; /* Bold font for emphasis */
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19); /* Subtle shadow for 3D effect */
+}
+
+.btn-info {
+  background-color: #17a2b8; /* Bootstrap info color */
+}
+
+.btn-success {
+  background-color: #28a745; /* Bootstrap success color */
+}

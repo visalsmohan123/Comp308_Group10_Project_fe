@@ -1,4 +1,6 @@
-import { gql } from '@apollo/client';
+
+import { useQuery, gql } from '@apollo/client';
+
 
 export const GET_ALL_USERS = gql`
   query {
@@ -33,4 +35,34 @@ query GetPreviousVitalSigns($patientId: String!) {
     updatedAt
     notes
   }
+}`;
+
+// GET_SYMPTOMS_HISTORY Query
+
+
+export const GET_SYMPTOMS_HISTORY = gql`
+  query GetSymptomsHistory($patientId: String!) {
+    getSymptomsHistory(patientId: $patientId) {
+      id
+      symptomsList
+      createdAt
+      severity
+    }
+  }
+`;
+
+
+// GET_DAILY_INFO_HISTORY Query
+export const GET_DAILY_INFO_HISTORY = gql`
+query GetDailyInfoHistory($patientId: String!) {
+    getDailyInfoHistory(patientId: $patientId) {
+        id
+        pulseRate
+        bloodPressure
+        weight
+        temperature
+        respiratoryRate
+        updatedOn
+        medicationTaken
+    }
 }`;

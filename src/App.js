@@ -8,6 +8,8 @@ import PatientHistory from './pages/PatientHistory';
 import Home from './pages/Home';
 import PrivateRoute from './components/PrivateRoute';
 import DashboardHeader from './pages/Header';
+import SymptomsHistory from './pages/SymptomsHistory'; // Make sure this import is correct
+import DailyInfoHistory from './pages/DailyInfoHistory'; // Make sure this import is correct
 
 function App() {
   return (
@@ -27,13 +29,26 @@ function App() {
             <PatientDashboard />
           </PrivateRoute>
         } />
-        <Route path="/symptoms" element={  // Add the new route for SymptomsDashboard
+        <Route path="/symptoms" element={
           <PrivateRoute allowedRoles={['patient']}>
             <DashboardHeader/>
             <SymptomsDashboard />
           </PrivateRoute>
         } />
         <Route path="/patient-history/:id" element={<PrivateRoute><DashboardHeader/><PatientHistory /></PrivateRoute>} />
+        {/* New Routes for Symptoms and Daily Info Histories */}
+        <Route path="/symptoms-history/:id" element={
+          <PrivateRoute allowedRoles={['nurse', 'patient']}>
+            <DashboardHeader/>
+            <SymptomsHistory />
+          </PrivateRoute>
+        } />
+        <Route path="/daily-info-history/:id" element={
+          <PrivateRoute allowedRoles={['nurse', 'patient']}>
+            <DashboardHeader/>
+            <DailyInfoHistory />
+          </PrivateRoute>
+        } />
       </Routes>
     </Router>
   );

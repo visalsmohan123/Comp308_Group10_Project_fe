@@ -95,6 +95,8 @@ const NurseDashboard = () => {
                                         Enter Vitals
                                     </button>{" "}
                                     <Link to={`/patient-history/${user.id}`} className="btn btn-warning ml-2">History</Link>
+                                    <Link to={`/symptoms-history/${user.id}`} className="btn btn-info ml-2">Symptoms History</Link>
+                                    <Link to={`/daily-info-history/${user.id}`} className="btn btn-success ml-2">Daily Info History</Link>
                                 </td>
                             </tr>
                         ))
