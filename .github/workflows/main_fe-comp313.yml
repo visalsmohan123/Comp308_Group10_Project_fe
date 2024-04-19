@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - comp308-fe
+name: Build and deploy Node.js app to Azure Web App - fe-comp313
 
 on:
   push:
@@ -15,10 +15,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
+      
       - name: Set CI environment variable to false
         run: echo "CI=false" >> $GITHUB_ENV
-
+        
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
@@ -28,6 +28,7 @@ jobs:
         run: |
           npm install
           npm run build --if-present
+          npm run test --if-present
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
@@ -58,7 +59,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'comp308-fe'
+          app-name: 'fe-comp313'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F99A20BCFB694A86978CCAE91635FB4C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A6A3402BBB9D484095B6A8AF3C3BEC81 }}
