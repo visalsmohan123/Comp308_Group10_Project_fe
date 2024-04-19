@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import DailyInfoForm from '../components/DailyInfoForm';
 import '../css/NurseDashboard.css';
 
@@ -15,6 +16,11 @@ const PatientDashboard = () => {
         <div className="nurse-div text-dark">
             <div className="nurse-bg"></div>
             <h1>Patient Dashboard</h1>
+            {/* Add buttons/links for accessing symptom and daily info history */}
+            <div>
+                <Link to={`/symptoms-history/${userId}`} className="btn btn-primary">Symptom History</Link>
+                <Link to={`/daily-info-history/${userId}`} className="btn btn-primary">Daily Info History</Link>
+            </div>
             <DailyInfoForm patientId={userId} />
         </div>
     );
